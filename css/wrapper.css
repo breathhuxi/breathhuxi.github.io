@@ -1,0 +1,57 @@
+nav
+{
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background-color: white;
+ }
+
+.navbar-brand
+{
+    font-weight: bold;
+    font-size: 2.6em;
+}
+
+.nav-item
+{
+    font-weight: lighter;
+    font-size: 0.9em;
+}
+
+.dropdown-menu
+{
+    border-radius: 2px;
+}
+
+.dropdown-item
+{
+    font-weight: lighter;
+    font-size: 0.9em;
+}
+
+footer
+{
+  width: 100%;
+  margin:0;
+  overflow: hidden;
+  color: grey;
+	font-size:16px;
+
+}
+  canvas{
+			background: white;
+			width: 100%;
+		}
+    input{
+    			width: 250px;
+    			height: 40px;
+    			line-height: 40px;
+    			position: relative;
+    			margin-bottom: 25px;
+    			background: none;
+    			color: grey;
+    			font-size: 16px;
+    			text-align: center;
+    			border: 1px solid lightgrey;
+    			background: rgba(255,255,255,0.8);
+    		}
