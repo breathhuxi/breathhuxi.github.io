@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"
+    />
+
+    <title>VR version of "Once upon a Culture"</title>
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/wrapper.css" rel="stylesheet">
+    <link href="css/collection-view.css" rel="stylesheet">
+    <link href="css/detail-view.css" rel="stylesheet">
+
+    <!-- Optional JavaScript -->
+    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+    <!-- A-Frame Extras -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.0.1/dist/aframe-extras.min.js"></script>
+    <!--
+    The event-set component gives you a quick way to add events
+    to elements (like click, mouseenter, mouseleave, mousedown, mouseup, and fusing)
+    without having to write Javascript for each event.
+
+    For exmample if you want to give the user feedback when they hover over the element,
+    you can do event-set__enter="_event: mouseenter; material.color: blue"
+    -->
+    <script src="https://unpkg.com/aframe-event-set-component@^4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <!--Environment-->
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
+
+    <script src="js/cultural_identity_control.js"></script>
+
+  </head>
+
+  <body>
+    <!-- container: wrap body inside -->
+    <div class="container">
+
+      <!-- Import header -->
+
+      <!-- Begin page content -->
+      <a-scene background="color: #FAFAFA" raycaster="objects: .clickable" cursor="rayOrigin: mouse">
+
+        <a-assets>
+
+          <a-mixin id="checkpoint"></a-mixin>
+          <a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>
+
+          <video id="avideol1" loop="true" src="assets/cultural-identity/movies/candle.mp4" preload="auto"></video>
+          <video id="avideom1" loop="true" src="assets/cultural-identity/movies/nini_still.mp4" preload="auto"></video>
+          <video id="avideor1" loop="true" src="assets/cultural-identity/movies/stars_and_crickets.mp4" preload="auto"></video>
+
+          <video id="avideol2" loop="true" src="assets/cultural-identity/movies/movie.mp4" preload="auto"></video>
+          <video id="avideom2" loop="true" src="assets/cultural-identity/movies/movie.mp4" preload="auto"></video>
+          <video id="avideor2" loop="true" src="assets/cultural-identity/movies/movie.mp4" preload="auto"></video>
+          <audio id="asound2" src="assets/cultural-identity/sounds/family_sound.mp3" preload="auto"></audio>
+
+          <video id="avideol3" loop="true" src="assets/cultural-identity/movies/call_me_al.mp4" preload="auto"></video>
+          <video id="avideom3" loop="true" src="assets/cultural-identity/movies/nini_still.mp4" preload="auto"></video>
+          <video id="avideor3" loop="true" src="assets/cultural-identity/movies/call_me_al.mp4" preload="auto"></video>
+
+          <video id="avideol4" loop="true" src="assets/cultural-identity/movies/fireside_place.mp4" preload="auto"></video>
+          <video id="avideom4" loop="true" src="assets/cultural-identity/movies/nini_still.mp4" preload="auto"></video>
+          <video id="avideor4" loop="true" src="assets/cultural-identity/movies/fireside_place.mp4" preload="auto"></video>
+          <audio id="asound4" src="assets/cultural-identity/sounds/mountain_snowstorm.mp3" preload="auto"></audio>
+
+          <video id="avideom5" loop="true" src="assets/cultural-identity/movies/nini_core.mp4"></video>
+
+          <img id="portal" src="assets/cultural-identity/portal.png"></img>
+
+        </a-assets>
+
+        <!--Environment-->
+
+        <!-- Camera -->
+        <a-entity id="camRig" position="0 0 1000" movement-controls="controls: checkpoint" checkpoint-controls="mode: teleport">
+          <a-camera position="0 1.6 0"></a-camera>
+        </a-entity>
+
+        <!-- Objects in the scene -->
+        <a-entity class="layer" id="layer1">
+          <a-tetrahedron class="clickable" checkpoint ckpt-cursor-listener animation="property: rotation; to: 0 180 0; startEvents: ckptClickEvent"
+          scale="100 100 100" position="0 2 0" rotation="55 -15 135" color="#7BC8A4" shadow></a-tetrahedron>
+
+          <a-video id="videol1" src="#avideol1" width="400" height="760" position="-420 0 -500"></a-video>
+          <a-video id="videom1" class="clickable" src="#avideom1" width="400" height="760" position="0 0 -500"
+           cursor-listener animation="property: rotation; to: 0 90 0; startEvents: clickEvent"
+           event-set__down="_event: mousedown; _target: #plane1; rotation: 0 90 0"></a-video>
+          <a-video id="videor1" src="#avideor1" width="400" height="760" position="420 0 -500"></a-video>
+
+          <a-plane id="plane1" scale="460 760 1" position="0 0 -501.5"></a-plane>
+        </a-entity>
+
+        <a-entity class="layer" id="layer2">
+          <a-tetrahedron class="clickable" checkpoint ckpt-cursor-listener animation="property: rotation; to: 0 180 0; startEvents: ckptClickEvent"
+          scale="100 100 100" position="0 2 -1000" rotation="55 -15 135" color="#7BC8A4" shadow
+          sound="src: #asound2; on: click; loop: true"></a-tetrahedron>
+
+          <a-video id="videol2" src="#avideol2" width="400" height="760" position="-420 0 -1500"></a-video>
+          <a-video id="videom2" class="clickable" src="#avideom2" width="400" height="760" position="0 0 -1500"
+            cursor-listener animation="property: rotation; to: 0 90 0; startEvents: clickEvent"
+            event-set__down="_event: mousedown; _target: #plane2; rotation: 0 90 0"></a-video>
+          <a-video id="videor2" src="#avideor2" width="400" height="760" position="420 0 -1500"></a-video>
+
+          <a-plane id="plane2" scale="460 760 1" position="0 0 -1501.5"></a-plane>
+        </a-entity>
+
+        <a-entity class="layer" id="layer3">
+          <a-tetrahedron class="clickable" checkpoint ckpt-cursor-listener animation="property: rotation; to: 0 180 0; startEvents: ckptClickEvent"
+            scale="80 80 80" position="0 2 -2000" rotation="55 -15 135" color="#7BC8A4" shadow></a-tetrahedron>
+
+          <a-video id="videol3" src="#avideol3" width="400" height="760" position="-420 0 -2500"></a-video>
+          <a-video id="videom3" class="clickable" src="#avideom3" width="400" height="760" position="0 0 -2500"
+            cursor-listener animation="property: rotation; to: 0 90 0; startEvents: clickEvent"
+            event-set__down="_event: mousedown; _target: #plane3; rotation: 0 90 0"></a-video>
+          <a-video id="videor3" src="#avideor3" width="400" height="760" position="420 0 -2500"></a-video>
+
+          <a-plane id="plane3" scale="460 760 1" position="0 0 -2501.5"></a-plane>
+        </a-entity>
+
+        <a-entity class="layer" id="layer4">
+          <a-tetrahedron class="clickable" checkpoint ckpt-cursor-listener animation="property: rotation; to: 0 180 0; startEvents: ckptClickEvent"
+            scale="80 80 80" position="0 2 -3000" rotation="55 -15 135" color="#7BC8A4" shadow
+            sound="src: #asound2; on: click; loop: true"></a-tetrahedron>
+
+          <a-video id="videol4" src="#avideol4" width="400" height="760" position="-420 0 -3500"></a-video>
+          <a-video id="videom4" class="clickable" src="#avideom4" width="400" height="760" position="0 0 -3500"
+            cursor-listener animation="property: rotation; to: 0 90 0; startEvents: clickEvent"
+            event-set__down="_event: mousedown; _target: #plane4; rotation: 0 90 0"></a-video>
+          <a-video id="videor4" src="#avideor4" width="400" height="760" position="420 0 -3500"></a-video>
+
+          <a-plane id="plane4" scale="460 760 1" position="0 0 -3501.5"></a-plane>
+        </a-entity>
+
+        <a-entity class="layer" id="layer5">
+          <a-tetrahedron class="clickable" checkpoint ckpt-cursor-listener animation="property: rotation; to: 0 180 0; startEvents: ckptClickEvent"
+            scale="80 80 80" position="0 2 -4000" rotation="55 -15 135" color="#7BC8A4" shadow></a-tetrahedron>
+
+          <a-video id="videom5" class="clickable" core-link-listener src="#avideom5" width="1240" height="760" position="0 0 -4500"
+            event-set__enter="_event: mouseenter; _target: #portalLink; visible: true; disabled: false"
+            event-set__leave="_event: mouseleave; _target: #portalLink; visible: false; disabled: true"></a-video>
+        </a-entity>
+
+        <a-link id="portalLink" class="clickable" visible="false" disabled="true"
+          position="0 4 -4006" href="cultural-identity.html" title="Back to Portal" image="#portal"></a-link>
+
+      </a-scene>
+
+      <!-- Import footer -->
+
+    </div> <!-- end of container: wrap body inside -->
+
+  </body>
+</html>
