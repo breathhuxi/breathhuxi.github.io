@@ -10,7 +10,7 @@ body {
 
 a {
   text-decoration: none;
-  cursor: url('./next.svg'), auto;
+  cursor: url('./downright.svg'), auto;
 }
 
 p {
@@ -31,7 +31,7 @@ p:hover {
   background: linear-gradient(90deg, #80d0c7, #3fbcdb, #b9c1f8, #ff9b9b, #ffb1a3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
-  cursor: url('./next.svg'), auto;
+  cursor: url('./downright.svg'), auto;
 }
 
 @keyframes animate {
